@@ -19,7 +19,7 @@
     header("Access-Control-Allow-Origin: *");
     header("Content-Type: application/json; charset=UTF-8");
     header("Access-Control-Max-Age: 3600");
-    header("x-hello-world: Himanshu Goel");
+    header("x-hello-world: Chandan Kumar");
 
     if(isset($_GET['name'])) {
         echo json_encode(array("ip" => $clientIp, "mesaage" => "Greetings ".$_GET['name']));
