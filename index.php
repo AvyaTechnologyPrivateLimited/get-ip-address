@@ -30,9 +30,7 @@
         } else {
             echo json_encode(array("ip" => $clientIp));
         }
-    } else {
-        echo json_encode(array("error" => "header missing"));
-    }
+    } 
 
     
 ?>
