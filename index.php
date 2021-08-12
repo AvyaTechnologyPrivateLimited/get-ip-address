@@ -1,7 +1,8 @@
 <?php
 
-    $headers = apache_request_headers();
-    if(isset($headers['x-hello-world']) && $headers['x-hello-world'] != '') {
+    $headers = getallheaders();
+//print_r($headers);die;
+    if(isset($headers['X-Hello-World']) && $headers['X-Hello-World'] != '') {
         if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
             $_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
             $_SERVER['HTTP_CLIENT_IP'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
@@ -30,7 +31,9 @@
         } else {
             echo json_encode(array("ip" => $clientIp));
         }
-    } 
+    } else {
+        echo json_encode(array("error" => "header missing"));
+    }
 
     
 ?>
